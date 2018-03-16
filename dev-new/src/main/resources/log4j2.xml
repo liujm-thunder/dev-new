@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- <Console name="STDOUT" target="SYSTEM_OUT"> <PatternLayout pattern="[%d{yyyy-MM-dd
+            HH:mm:ss}]%5p %c - %m%n"/> </Console> -->
+
+        <!--<RollingFile name="root" fileName="log/root.log"-->
+                     <!--filePattern="log/root.log.%d{yyyyMMdd}" ignoreExceptions="false"-->
+                     <!--immediateFlush="true" bufferedIO="true" bufferSize="8192">-->
+            <!--<PatternLayout>-->
+                <!--<Pattern>[%d{yyyy-MM-dd HH:mm:ss}]%5p %c - %m%n</Pattern>-->
+            <!--</PatternLayout>-->
+            <!--<TimeBasedTriggeringPolicy interval="1" modulate="true" />-->
+        <!--</RollingFile>-->
+
+        <RollingFile name="info" fileName="log/info.log"
+                     filePattern="log/info.log.%d{yyyyMMdd}" ignoreExceptions="false"
+                     immediateFlush="true" bufferedIO="true" bufferSize="8192">
+            <PatternLayout>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]%5p %c - %m%n</Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+        </RollingFile>
+
+        <RollingFile name="download" fileName="log/download.log"
+                     filePattern="log/download.log.%d{yyyyMMdd}" ignoreExceptions="false"
+                     immediateFlush="true" bufferedIO="true" bufferSize="8192">
+            <PatternLayout>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]%5p %c - %m%n</Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy interval="1"
+                                       modulate="true" />
+        </RollingFile>
+
+        <RollingFile name="debug" fileName="log/debug.log"
+                     filePattern="log/debug.log.%d{yyyyMMdd}" ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]%5p %c - %m%n</Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+        </RollingFile>
+
+        <RollingFile name="error" fileName="log/error.log"
+                     filePattern="log/error.log.%d{yyyyMMdd}" ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}]%5p %c - %m%n</Pattern>
+            </PatternLayout>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+        </RollingFile>
+
+
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="InfoLog" level="info"
+                additivity="false">
+            <AppenderRef ref="info" />
+        </Logger>
+
+        <!--<Logger name="RootLog" level="trace"-->
+                <!--additivity="false">-->
+            <!--<AppenderRef ref="root" />-->
+        <!--</Logger>-->
+
+        <Logger name="DownloadLog" level="info"
+                additivity="false">
+            <AppenderRef ref="download" />
+        </Logger>
+
+        <Logger name="DebugLog" level="debug"
+                additivity="false">
+            <AppenderRef ref="debug" />
+        </Logger>
+
+        <Logger name="ErrorLog" level="error"
+                additivity="false">
+            <AppenderRef ref="error" />
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="info" />
+        </Root>
+    </Loggers>
+</Configuration>
